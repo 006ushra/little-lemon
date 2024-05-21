@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.bush.littlelemoncappro.componants.AppHeader
+import com.bush.littlelemoncappro.data.PreferencesKeys
 import com.bush.littlelemoncappro.navigation.Home
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.charcoal
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.yellow
@@ -42,21 +43,21 @@ fun ProfileScreen(navHostController: NavHostController) {
             Column(verticalArrangement = Arrangement.SpaceAround) {
                 Text(text = "First Name:")
                 OutlinedTextField(
-                    value = sharedPreferences.getString("firstName", "first name").toString(),
+                    value = sharedPreferences.getString(PreferencesKeys.FIRST_NAME, "first name").toString(),
                     onValueChange = {},
                     readOnly = true,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Text(text = "Last Name:", modifier = Modifier.padding(top = 20.dp))
                 OutlinedTextField(
-                    value = sharedPreferences.getString("lastName", "last name").toString(),
+                    value = sharedPreferences.getString(PreferencesKeys.LAST_NAME, "last name").toString(),
                     onValueChange = {},
                     readOnly = true,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Text(text = "Email:", modifier = Modifier.padding(top = 20.dp))
                 OutlinedTextField(
-                    value = sharedPreferences.getString("emailAddress", "email address").toString(),
+                    value = sharedPreferences.getString(PreferencesKeys.EMAIL_ADDRESS, "email address").toString(),
                     onValueChange = {},
                     readOnly = true,
                     modifier = Modifier.fillMaxWidth()
@@ -66,10 +67,10 @@ fun ProfileScreen(navHostController: NavHostController) {
         Button(
             onClick = {
                 sharedPreferences.edit()
-                    .remove("firstName")
-                    .remove("lastName")
-                    .remove("emailAddress")
-                    .putBoolean("isLoggedIn", false)
+                    .remove(PreferencesKeys.FIRST_NAME)
+                    .remove(PreferencesKeys.LAST_NAME)
+                    .remove(PreferencesKeys.EMAIL_ADDRESS)
+                    .putBoolean(PreferencesKeys.IS_LOGGED_IN, false)
                     .apply()
                 navHostController.navigate(Home.route)
             },

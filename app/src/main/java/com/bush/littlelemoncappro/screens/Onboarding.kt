@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.bush.littlelemoncappro.R
+import com.bush.littlelemoncappro.data.PreferencesKeys
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.cloud
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.charcoal
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.green
@@ -104,10 +105,10 @@ fun OnboardingScreen(navHostController: NavHostController) {
                     Toast.makeText(context, message, Toast.LENGTH_LONG).show()
                 } else {
                     sharedPreferences.edit()
-                        .putString("firstName", firstName.value)
-                        .putString("lastName", lastName.value)
-                        .putString("emailAddress", emailAddress.value)
-                        .putBoolean("isLoggedIn", true)
+                        .putString(PreferencesKeys.FIRST_NAME, firstName.value)
+                        .putString(PreferencesKeys.LAST_NAME, lastName.value)
+                        .putString(PreferencesKeys.EMAIL_ADDRESS, emailAddress.value)
+                        .putBoolean(PreferencesKeys.IS_LOGGED_IN, true)
                         .apply()
                     val message = "Registration successful!"
                     Toast.makeText(context, message, Toast.LENGTH_LONG).show()
