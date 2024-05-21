@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-kapt")
 }
 
 android {
@@ -69,4 +70,7 @@ dependencies {
 
     implementation ("com.github.bumptech.glide:compose:1.0.0-alpha.1")
     implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation ("io.ktor:ktor-serialization-kotlinx-json:2.1.3")
+    implementation("androidx.room:room-runtime:2.4.3")
+    kapt("androidx.room:room-compiler:2.4.3")
 }
