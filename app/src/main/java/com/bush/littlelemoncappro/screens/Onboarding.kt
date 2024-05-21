@@ -21,9 +21,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.bush.littlelemoncappro.R
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.cloud
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.charcoal
@@ -31,7 +31,7 @@ import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.green
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.yellow
 
 @Composable
-fun OnboardingScreen() {
+fun OnboardingScreen(navHostController: NavHostController) {
     val firstName = remember {
         mutableStateOf("")
     }
@@ -111,6 +111,7 @@ fun OnboardingScreen() {
                         .apply()
                     val message = "Registration successful!"
                     Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+                    navHostController.navigate("Home")
                 }
             },
             colors = ButtonDefaults.buttonColors(containerColor = yellow, contentColor = charcoal),
@@ -121,10 +122,4 @@ fun OnboardingScreen() {
             Text(text = "Register")
         }
     }
-}
-
-@Preview
-@Composable
-private fun OnboardingPreview() {
-    OnboardingScreen()
 }

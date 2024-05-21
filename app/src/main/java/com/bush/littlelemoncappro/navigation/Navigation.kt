@@ -22,10 +22,10 @@ fun Navigation(navHostController: NavHostController) {
             HomeScreen()
         }
         composable(Onboarding.route) {
-            OnboardingScreen()
+            OnboardingScreen(navHostController)
         }
         composable(Profile.route) {
-            ProfileScreen()
+            ProfileScreen(navHostController)
         }
     }
 }
