@@ -18,7 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.bush.littlelemoncappro.componants.AppHeader
 import com.bush.littlelemoncappro.data.PreferencesKeys
-import com.bush.littlelemoncappro.navigation.Home
+import com.bush.littlelemoncappro.navigation.Onboarding
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.charcoal
 import com.bush.littlelemoncappro.ui.theme.LittleLemonColors.yellow
 
@@ -27,7 +27,7 @@ fun ProfileScreen(navHostController: NavHostController) {
     val sharedPreferences =
         LocalContext.current.getSharedPreferences("LittleLemon", Context.MODE_PRIVATE)
     Column {
-        AppHeader()
+        AppHeader(navHostController)
         Column(
             Modifier
                 .weight(1f)
@@ -72,7 +72,7 @@ fun ProfileScreen(navHostController: NavHostController) {
                     .remove(PreferencesKeys.EMAIL_ADDRESS)
                     .putBoolean(PreferencesKeys.IS_LOGGED_IN, false)
                     .apply()
-                navHostController.navigate(Home.route)
+                navHostController.navigate(Onboarding.route)
             },
             colors = ButtonDefaults.buttonColors(
                 containerColor = yellow,

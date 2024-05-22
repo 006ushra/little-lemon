@@ -1,6 +1,7 @@
 package com.bush.littlelemoncappro.componants
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,10 +13,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.bush.littlelemoncappro.R
+import com.bush.littlelemoncappro.navigation.Profile
 
 @Composable
-fun AppHeader() {
+fun AppHeader(navHostController: NavHostController) {
     Box(
         modifier = Modifier.fillMaxWidth()
     ) {
@@ -35,12 +38,9 @@ fun AppHeader() {
                 .height(30.dp)
                 .align(Alignment.CenterEnd)
                 .padding(end = 10.dp)
+                .clickable {
+                    navHostController.navigate(Profile.route)
+                }
         )
     }
-}
-
-@Preview
-@Composable
-private fun HeaderPreview() {
-    AppHeader()
 }
