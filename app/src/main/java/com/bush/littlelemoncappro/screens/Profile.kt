@@ -43,21 +43,21 @@ fun ProfileScreen(navHostController: NavHostController) {
             Column(verticalArrangement = Arrangement.SpaceAround) {
                 Text(text = "First Name:")
                 OutlinedTextField(
-                    value = sharedPreferences.getString(PreferencesKeys.FIRST_NAME, "first name").toString(),
+                    value = sharedPreferences.getString(PreferencesKeys.FIRST_NAME, "").toString(),
                     onValueChange = {},
                     readOnly = true,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Text(text = "Last Name:", modifier = Modifier.padding(top = 20.dp))
                 OutlinedTextField(
-                    value = sharedPreferences.getString(PreferencesKeys.LAST_NAME, "last name").toString(),
+                    value = sharedPreferences.getString(PreferencesKeys.LAST_NAME, "").toString(),
                     onValueChange = {},
                     readOnly = true,
                     modifier = Modifier.fillMaxWidth()
                 )
                 Text(text = "Email:", modifier = Modifier.padding(top = 20.dp))
                 OutlinedTextField(
-                    value = sharedPreferences.getString(PreferencesKeys.EMAIL_ADDRESS, "email address").toString(),
+                    value = sharedPreferences.getString(PreferencesKeys.EMAIL_ADDRESS, "").toString(),
                     onValueChange = {},
                     readOnly = true,
                     modifier = Modifier.fillMaxWidth()
